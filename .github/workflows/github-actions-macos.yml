@@ -1,0 +1,36 @@
+name: "GitHub Actions MacOS Test!"
+run-name: "GitHub Actions MacOS Test!"
+on:
+  push:
+
+  workflow_dispatch:
+    inputs:
+      flavor-must:
+        required: true
+        description: 'Flavor Must'
+        default: 'default-value 1'
+      flavor-not-must:
+        required: false
+        description: 'Flavor Not Must'
+        default: 'default-value 2'
+
+jobs:
+  macos_test:
+    runs-on: macos-latest
+    steps:
+      - name: 'Check Run 1'
+        run: |
+          pwd
+          echo $PATH
+          sw_vers
+          
+
+      - name: 'CheckOut!'
+        uses: actions/checkout@v4
+
+      - name: 'Check Run 2'
+        run: |
+          pwd
+          echo $PATH
+          sw_vers
+
