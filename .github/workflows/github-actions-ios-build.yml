@@ -1,0 +1,82 @@
+name: Flutter iOS integrations_test
+run-name: ${{ github.actor }} is Flutter iOS integrations_test!
+on:
+  push:
+    branched: ["develop-workflows"]
+  workflow_dispatch:
+    inputs:
+      flavor-must:
+        required: true
+        description: 'Flavor Must'
+        default: 'default-value 1'
+      flavor-not-must:
+        required: false
+        description: 'Flavor Not Must'
+        default: 'default-value 2'
+
+env:
+  flutter_version: '3.16.4'
+jobs:
+
+  integration_test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 'Set up Flutter environment'
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.4'
+          channel: 'stable'
+          cache: true
+
+      # flutter キャッシュ
+      - name: 'Flutter packages cache'
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ env.FLUTTER_HOME }}/.pub-cache
+            **/.packages
+            **/.flutter-plugins
+            **/.flutter-plugin-dependencies
+            **/.dart_tool/package_config.json
+          key: pubspec-hash-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: 'pubspec-hash-'
+
+      - run: |
+          flutter pub get --verbose
+
+      - name: Get iPhone SE 3rd generation Simulator UUID
+        run: |
+          echo "start!"
+      - name: "Get UUID"
+        run: |
+          echo "---- @@ 1 ----"
+          UUID=$(xcrun xctrace list devices | grep "iPhone SE (3rd generation) Simulator" | awk -F '[()]' '{ print $6 }')
+          echo "---- @@ 2 ----"
+          echo "UUID->$UUID"
+          xcrun simctl boot $UUID
+          echo "---- @@ 3 ----"
+          xcrun simctl bootstatus $UUID
+          echo "---- @@ 4 ----"
+          flutter test integration_test -d $UUID
+          echo "---- @@ 5 ----"
+          echo "Finish!"        
+
+#  integration_test_ios:
+#    name: IntegrationTest(iOS)
+#    runs-on: macos-latest
+#    needs: macos_flutter_setup
+#    steps:
+#      - name: Get iPhone SE 3rd generation Simulator UUID
+#        run: |
+#          echo "start!"
+#      - name: "Get UUID"
+#        run: |
+#          UUID=$(xcrun xctrace list devices | grep "iPhone SE (3rd generation) Simulator" | awk -F '[()]' '{ print $6 }')
+#          echo "UUID->$UUID"
+#
+#          xcrun simctl boot $UUID
+#          xcrun simctl bootstatus $UUID
+#          flutter test integration_test -d $UUID
+#          echo "Finish!"

@@ -1,0 +1,27 @@
+name: GitHub Actions Test 1 !
+run-name: ${{ github.actor }} is testing GitHub Actions!
+on:
+  push:
+
+  workflow_dispatch:
+    inputs:
+      flavor-must:
+        required: true
+        description: 'Flavor Must'
+        default: 'default-value 1'
+      flavor-not-must:
+        required: false
+        description: 'Flavor Not Must'
+        default: 'default-value 2'
+
+jobs:
+  Explore-Github-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job was auto triggered! github.event_name->[${{ github.event_name }}] runner.os->[${{ runner.os }}] github.ref->[${{ github.ref }}] github.repository->[${{ github.repository }}.]"
+      - name: name = Check out
+        uses: actions/checkout@v4
+      - run: echo "github.repository->[${{ github.repository }}] cloned to the runner"
+      - name: name = List files
+        run: ls ${{ github.workspace }}
+      - run: echo "job.status->[${{ job.status }}]."
