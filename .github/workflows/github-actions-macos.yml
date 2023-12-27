@@ -30,6 +30,9 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
+      - name: "gradle build action"
+        uses: gradle/gradle-build-action@v2
+
       - name: 'brew install'
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
