@@ -1,8 +1,9 @@
 name: "MacOS Test!"
-run-name: "MacOS Test!"
+run-name: "MacOS Test! Run NAME"
 on:
   push:
 
+  # GithubActionsの左エリアが「自分のrun-」
   workflow_dispatch:
     inputs:
       flavor-must:
