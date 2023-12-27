@@ -1,5 +1,5 @@
-name: "GitHub Actions MacOS Test!"
-run-name: "GitHub Actions MacOS Test!"
+name: "MacOS Test!"
+run-name: "MacOS Test!"
 on:
   push:
 
@@ -22,60 +22,23 @@ jobs:
         run: pwd
         # /Users/runner/work/github_actions_test/github_actions_test
 
-      - name: 'echo $PATH'
-        run: echo $PATH
-        # /usr/local/lib/ruby/gems/3.0.0/bin
-        # :/usr/local/opt/ruby@3.0/bin
-        # :/usr/local/opt/pipx_bin
-        # :/Users/runner/.cargo/bin
-        # :/usr/local/opt/curl/bin
-        # :/usr/local/bin
-        # :/usr/local/sbin
-        # :/Users/runner/bin
-        # :/Users/runner/.yarn/bin
-        # :/Users/runner/Library/Android/sdk/tools
-        # :/Users/runner/Library/Android/sdk/platform-tools
-        # :/Library/Frameworks/Python.framework/Versions/Current/bin
-        # :/Library/Frameworks/Mono.framework/Versions/Current/Commands
-        # :/usr/bin
-        # :/bin
-        # :/usr/sbin
-        # :/sbin
-        # :/Users/runner/.dotnet/tools
-        # :/Users/runner/.ghcup/bin
-
-      - name: 'sw_vers'
-        run: sw_vers
-        # ProductName:	macOS
-        # ProductVersion: 12.7.2
-        # BuildVersion:	21G1974
-
       - name: 'ls -la'
         run: ls -la
+        # .
+        # ..
 
-      - name: 'cd ..'
-        run: cd ..
+      - name: 'ls -la /'
+        run: ls -la /
 
-      - name: 'pwd'
-        run: pwd
+      - name: 'ls -la /Users'
+        run: ls -la /Users
 
-      - name: 'ls -la'
-        run: ls -la
+      - name: 'ls -la /Users/runner'
+        run: ls -la /Users/runner
 
-      - name: '@@ actions/checkout@v4'
-        uses: actions/checkout@v4
+      - name: 'ls -la /Users/runner/work'
+        run: ls -la /Users/runner/work
 
-      - name: 'sw_vers'
-        run: sw_vers
+      - name: 'ls -la /Users/runner/work/github_actions_test'
+        run: ls -la /Users/runner/work/github_actions_test
 
-      - name: 'ls -la'
-        run: ls -la
-
-      - name: 'cd ..'
-        run: cd ..
-
-      - name: 'pwd'
-        run: pwd
-
-      - name: 'ls -la'
-        run: ls -la
