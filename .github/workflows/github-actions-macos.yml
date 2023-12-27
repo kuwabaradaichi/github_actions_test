@@ -47,11 +47,11 @@ jobs:
       - name: 'sw_vers'
         run: sw_vers
         # ProductName:	macOS
-        # ProductVersion:	12.7.2
+        # ProductVersion: 12.7.2
         # BuildVersion:	21G1974
 
-      - name: 'ls'
-        run: ls
+      - name: 'ls -la'
+        run: ls -la
 
       - name: 'cd ..'
         run: cd ..
@@ -59,8 +59,8 @@ jobs:
       - name: 'pwd'
         run: pwd
 
-      - name: 'ls'
-        run: ls
+      - name: 'ls -la'
+        run: ls -la
 
       - name: '@@ actions/checkout@v4'
         uses: actions/checkout@v4
@@ -68,8 +68,8 @@ jobs:
       - name: 'sw_vers'
         run: sw_vers
 
-      - name: 'ls'
-        run: ls
+      - name: 'ls -la'
+        run: ls -la
 
       - name: 'cd ..'
         run: cd ..
@@ -77,5 +77,5 @@ jobs:
       - name: 'pwd'
         run: pwd
 
-      - name: 'ls'
-        run: ls
+      - name: 'ls -la'
+        run: ls -la
