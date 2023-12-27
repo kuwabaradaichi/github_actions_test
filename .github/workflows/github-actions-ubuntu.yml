@@ -43,7 +43,7 @@ jobs:
 
       - name: 'tree'
         if: always()
-        run: tree -d -L 4 -I proc|run|sys|tmp /
+        run: tree -d -L 4 -I "proc|run|sys|tmp" /
 
 #      - name: './gradlew assembleDebug'
 #        working-directory: android
