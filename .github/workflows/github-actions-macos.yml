@@ -38,6 +38,7 @@ jobs:
         run: pwd
 
       - name: 'tree'
+        if: always()
         run: tree
 
       - name: 'brew install'
