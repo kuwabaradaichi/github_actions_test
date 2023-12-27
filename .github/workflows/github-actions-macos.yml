@@ -22,43 +22,30 @@ jobs:
       - name: '@@ actions/checkout@v4'
         uses: actions/checkout@v4
 
-      - name: "setup java"
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-          cache: 'gradle'
-
-      - name: 'cd ./android & ls'
-        run: | 
-          cd ./android
-          ls
-
-      - name: 'pwd'
-        run: pwd
-
-      - name: 'tree'
-        run: tree
+      #      - name: "setup java"
+      #        uses: actions/setup-java@v4
+      #        with:
+      #          distribution: 'zulu'
+      #          java-version: '17'
+      #          cache: 'gradle'
 
       - name: 'brew install'
-        if: always()
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
       - name: 'install tree'
-        if: always()
         run: |
           brew install tree
 
       - name: 'tree'
         if: always()
-        run: tree /
+        run: tree -d -L 4 /
 
-      - name: './gradlew assembleDebug'
-        working-directory: android
-        run: |
-          ls 
-          ./gradlew assembleDebug
+#      - name: './gradlew assembleDebug'
+#        working-directory: android
+#        run: |
+#          ls
+#          ./gradlew assembleDebug
 
 
 #      - name: '@@actions/upload-artifact@v4'
