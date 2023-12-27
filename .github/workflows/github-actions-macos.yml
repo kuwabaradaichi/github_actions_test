@@ -18,19 +18,68 @@ jobs:
   macos_test:
     runs-on: macos-latest
     steps:
-      - name: 'Check Run 1'
-        run: |
-          pwd
-          echo $PATH
-          sw_vers
-          
 
-      - name: 'CheckOut!'
+      : # /Users/runner/work/github_actions_test/github_actions_test
+      - name: 'pwd'
+        run: pwd
+
+          : # /usr/local/lib/ruby/gems/3.0.0/bin
+          : # :/usr/local/opt/ruby@3.0/bin
+          : # :/usr/local/opt/pipx_bin
+          : # :/Users/runner/.cargo/bin
+          : # :/usr/local/opt/curl/bin
+          : # :/usr/local/bin
+          : # :/usr/local/sbin
+          : # :/Users/runner/bin
+          : # :/Users/runner/.yarn/bin
+          : # :/Users/runner/Library/Android/sdk/tools
+          : # :/Users/runner/Library/Android/sdk/platform-tools
+          : # :/Library/Frameworks/Python.framework/Versions/Current/bin
+          : # :/Library/Frameworks/Mono.framework/Versions/Current/Commands
+          : # :/usr/bin
+          : # :/bin
+          : # :/usr/sbin
+          : # :/sbin
+          : # :/Users/runner/.dotnet/tools
+          : # :/Users/runner/.ghcup/bin
+
+      - name: 'echo $PATH'
+        run: echo $PATH
+          : # ProductName:	macOS
+          : # ProductVersion:	12.7.2
+          : # BuildVersion:	21G1974
+
+
+      - name: 'sw_vers'
+        run: sw_vers
+
+      - name: 'ls'
+        run: ls
+
+      - name: 'cd ..'
+        run: cd ..
+
+      - name: 'pwd'
+        run: pwd
+
+      - name: 'ls'
+        run: ls
+
+      - name: '@@ actions/checkout@v4'
         uses: actions/checkout@v4
 
-      - name: 'Check Run 2'
-        run: |
-          pwd
-          echo $PATH
-          sw_vers
+      - name: 'sw_vers'
+        run: sw_vers
 
+
+      - name: 'ls'
+        run: ls
+
+      - name: 'cd ..'
+        run: cd ..
+
+      - name: 'pwd'
+        run: pwd
+
+      - name: 'ls'
+        run: ls
