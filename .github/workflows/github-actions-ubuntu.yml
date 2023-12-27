@@ -23,15 +23,15 @@ jobs:
       - name: '@@ actions/checkout@v4'
         uses: actions/checkout@v4
 
-      - name: "setup java"
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-          cache: 'gradle'
+#      - name: "setup java"
+#        uses: actions/setup-java@v4
+#        with:
+#          distribution: 'zulu'
+#          java-version: '17'
+#          cache: 'gradle'
 
-#      - name: "gradle build action"
-#        uses: gradle/gradle-build-action@v2
+      - name: "gradle build action"
+        uses: gradle/gradle-build-action@v2
 
       - name: 'brew install'
         run: |
@@ -43,7 +43,7 @@ jobs:
 
       - name: 'tree'
         if: always()
-        run: tree -d -L 4 -I proc /
+        run: tree -d -L 4 -I proc|run|sys|tmp /
 
 #      - name: './gradlew assembleDebug'
 #        working-directory: android
