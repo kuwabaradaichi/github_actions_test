@@ -3,7 +3,7 @@ run-name: "MacOS Test! Run NAME"
 on:
   push:
 
-  # GithubActionsの左エリアが「自分のrun-」
+  # Githubにて「Actions」タブを洗濯後、左エリアの「name」を選択すると、「Run workflow」が表示される。
   workflow_dispatch:
     inputs:
       flavor-must:
@@ -19,114 +19,11 @@ jobs:
   macos_test:
     runs-on: macos-latest
     steps:
-      - name: 'pwd'
-        run: pwd
-        # /Users/runner/work/github_actions_test/github_actions_test
+      - name: '@@ actions/checkout@v4'
+        uses: actions/checkout@v4
 
-      - name: 'ls -la /'
-        run: ls -la /
-        #  total 9
-        #  drwxr-xr-x  20 root  wheel   640 Dec  2 03:55 .
-        #  drwxr-xr-x  20 root  wheel   640 Dec  2 03:55 ..
-        #  lrwxr-xr-x   1 root  admin    36 Dec  2 03:55 .VolumeIcon.icns -> System/Volumes/Data/.VolumeIcon.icns
-        #  ----------   1 root  admin     0 Dec  2 03:55 .file
-        #  drwxr-xr-x   2 root  wheel    64 Dec  2 03:55 .vol
-        #  drwxrwxr-x  33 root  admin  1056 Dec 16 11:37 Applications
-        #  drwxr-xr-x  68 root  wheel  2176 Dec 16 11:26 Library
-        #  drwxr-xr-x@  9 root  wheel   288 Dec  2 03:55 System
-        #  drwxr-xr-x   5 root  admin   160 Dec 14 18:05 Users
-        #  drwxr-xr-x   3 root  wheel    96 Dec 27 08:15 Volumes
-        #  drwxr-xr-x@ 38 root  wheel  1216 Dec  2 03:55 bin
-        #  drwxr-xr-x   2 root  wheel    64 Dec  2 03:55 cores
-        #  dr-xr-xr-x   3 root  wheel  4272 Dec 27 08:15 dev
-        #  lrwxr-xr-x@  1 root  wheel    11 Dec  2 03:55 etc -> private/etc
-        #  lrwxr-xr-x   1 root  wheel    25 Dec 27 08:15 home -> /System/Volumes/Data/home
-        #  drwxr-xr-x   3 root  wheel    96 Dec 16 08:45 opt
-        #  drwxr-xr-x   6 root  wheel   192 Dec 27 08:15 private
-        #  drwxr-xr-x@ 65 root  wheel  2080 Dec  2 03:55 sbin
-        #  lrwxr-xr-x@  1 root  wheel    11 Dec  2 03:55 tmp -> private/tmp
-        #  drwxr-xr-x@ 11 root  wheel   352 Dec  2 03:55 usr
-        #  lrwxr-xr-x@  1 root  wheel    11 Dec  2 03:55 var -> private/var
-      - name: 'ls -la /Users'
-        run: ls -la /Users
-        #  total 0
-        #  drwxr-xr-x   5 root    admin   160 Dec 14 18:05 .
-        #  drwxr-xr-x  20 root    wheel   640 Dec  2 03:55 ..
-        #  -rw-r--r--   1 root    wheel     0 Dec  2 03:55 .localized
-        #  drwxrwxrwt   3 root    wheel    96 Dec  2 03:55 Shared
-        #  drwxr-xr-x  49 runner  staff  1568 Dec 27 08:43 runner
-
-
-      - name: 'ls -la /Users/runner'
-        run: ls -la /Users/runner
-        #  total 208
-        #  drwxr-xr-x  49 runner  staff   1568 Dec 27 08:43 .
-        #  drwxr-xr-x   5 root    admin    160 Dec 14 18:05 ..
-        #  drwxr-xr-x  20 runner  staff    640 Dec 16 08:47 .Azure
-        #  -r--------   1 runner  staff      7 Dec 14 18:05 .CFUserTextEncoding
-        #  drwx------+  2 runner  staff     64 Dec 14 18:07 .Trash
-        #  drwxr-xr-x   3 runner  staff     96 Dec 16 10:55 .android
-        #  drwxr-xr-x   3 runner  staff     96 Dec 16 08:23 .azcopy
-        #  drwxr-xr-x   3 runner  staff     96 Dec 16 08:47 .azure-devops
-        #  -rw-------   1 runner  staff     64 Dec 16 08:17 .bash_history
-        #  -rw-r--r--   1 runner  staff    140 Dec 21 23:24 .bash_profile
-        #  drwx------   8 runner  staff    256 Dec 16 08:17 .bash_sessions
-        #  -rw-r--r--   1 runner  staff   3276 Dec 16 11:32 .bashrc
-        #  drwxr-xr-x   4 runner  staff    128 Dec 16 10:47 .cabal
-        #  drwxr-xr-x   3 runner  staff     96 Dec 16 08:18 .cache
-        #  drwxr-xr-x   8 runner  staff    256 Dec 16 10:34 .cargo
-        #  drwxr-xr-x   3 runner  staff     96 Dec 16 11:34 .colima
-        #  drwxr-xr-x   3 runner  staff     96 Dec 16 11:24 .conda
-        #  drwxr-xr-x   6 runner  staff    192 Dec 27 08:43 .config
-        #  drwxr-xr-x  11 runner  staff    352 Dec 16 08:20 .dotnet
-        #  drwxr-xr-x  13 runner  staff    416 Dec 16 10:55 .ghcup
-        #  -rw-r--r--   1 runner  staff    493 Dec 16 08:28 .gitconfig
-        #  drwxr-xr-x   4 runner  staff    128 Dec 16 10:28 .gradle
-        #  drwxr-xr-x   3 runner  staff     96 Dec 16 08:18 .local
-        #  drwx------   3 runner  staff     96 Dec 16 11:28 .net
-        #  drwxr-xr-x   4 runner  staff    128 Dec 16 11:37 .npm
-        #  drwxr-xr-x  31 runner  staff    992 Dec 16 11:20 .nvm
-        #  drwxr-xr-x   7 runner  staff    224 Dec 16 10:34 .rustup
-        #  drwxr-xr-x   4 runner  staff    128 Dec 16 08:47 .sbt
-        #  drwxrwxrwx   3 runner  staff     96 Dec 16 08:16 .ssh
-        #  drwxr-xr-x   6 runner  staff    192 Dec 16 08:47 .subversion
-        #  drwxr-xr-x   3 runner  staff     96 Dec 16 11:24 .vcpkg
-        #  drwxr-xr-x   8 runner  staff    256 Dec 16 08:29 .yarn
-        #  drwxr-xr-x   2 runner  staff     64 Dec 14 18:07 Desktop
-        #  drwxr-xr-x   2 runner  staff     64 Dec 14 18:07 Documents
-        #  drwxr-xr-x   2 runner  staff     64 Dec 14 18:07 Downloads
-        #  drwxr-xr-x@ 54 runner  staff   1728 Dec 16 11:24 Library
-        #  drwxr-xr-x   3 runner  staff     96 Dec 16 08:13 Movies
-        #  drwxr-xr-x   7 runner  staff    224 Dec 16 10:24 actionarchivecache
-        #  drwxr-xr-x   5 runner  staff    160 Dec 21 23:24 bootstrap
-        #  drwxr-xr-x   9 runner  staff    288 Dec 16 11:31 hostedtoolcache
-        #  drwxr-xr-x   9 runner  staff    288 Dec 16 11:35 image-generation
-        #  -rw-r--r--   1 runner  staff    405 Dec 21 23:25 imagedata.json
-        #  -rwxr-xr-x   1 root    staff     99 Dec 16 08:16 limit-maxfiles.sh
-        #  drwxr-xr-x   4 runner  staff    128 Dec 16 08:48 project
-        #  drwxr-xr-x   4 runner  staff    128 Dec 21 23:24 runners
-        #  -rw-r--r--   1 runner  staff  41895 Dec 16 11:37 systeminfo.json
-        #  -rw-r--r--   1 runner  staff  30886 Dec 16 11:37 systeminfo.md
-        #  drwxr-xr-x   4 runner  staff    128 Dec 16 08:48 target
-        #  drwxr-xr-x   5 runner  staff    160 Dec 27 08:43 work
-
-      - name: 'ls -la /Users/runner/work'
-        run: ls -la /Users/runner/work
-        #  total 0
-        #  drwxr-xr-x   5 runner  staff   160 Dec 27 08:43 .
-        #  drwxr-xr-x  49 runner  staff  1568 Dec 27 08:43 ..
-        #  drwxr-xr-x   3 runner  staff    96 Dec 27 08:43 _PipelineMapping
-        #  drwxr-xr-x  10 runner  staff   320 Dec 27 08:43 _temp
-        #  drwxr-xr-x   3 runner  staff    96 Dec 27 08:43 github_actions_test
-
-      - name: 'ls -la /Users/runner/work/github_actions_test'
-        run: ls -la /Users/runner/work/github_actions_test
-        #  total 0
-        #  drwxr-xr-x  3 runner  staff   96 Dec 27 08:43 .
-        #  drwxr-xr-x  5 runner  staff  160 Dec 27 08:43 ..
-        #  drwxr-xr-x  2 runner  staff   64 Dec 27 08:43 github_actions_test
-
-      - name: 'ls -la'
-        run: ls -la
-        # .
-        # ..
+      - name: '@@'
+        uses: actions/artifact@v4
+        with:
+          name: outputs
+          path: ./outputs
