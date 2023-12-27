@@ -22,8 +22,18 @@ jobs:
       - name: '@@ actions/checkout@v4'
         uses: actions/checkout@v4
 
-      - name: '@@'
-        uses: actions/upload-artifact@v4
-        with:
-          name: outputs
-          path: ./outputs
+      - name: 'cd ./android'
+        uses: cd ./android
+
+      - name: 'pwd'
+        uses: pwd
+
+      - name: './gradlew assembleDebug'
+        uses: ./gradlew assembleDebug
+
+
+#      - name: '@@actions/upload-artifact@v4'
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: outputs
+#          path: ./outputs
