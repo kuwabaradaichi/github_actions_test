@@ -22,14 +22,17 @@ jobs:
       - name: '@@ actions/checkout@v4'
         uses: actions/checkout@v4
 
+      - name: 'ls'
+        run: ls
+
       - name: 'cd ./android'
         run: cd ./android
 
       - name: 'pwd'
         run: pwd
 
-      - name: './gradlew assembleDebug'
-        run: ./gradlew assembleDebug
+      - name: './gradlew assembleDebug -p ./android'
+        run: ./gradlew assembleDebug -p ./android
 
 
 #      - name: '@@actions/upload-artifact@v4'
