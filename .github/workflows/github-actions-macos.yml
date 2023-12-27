@@ -1,7 +1,7 @@
 name: "MacOS Test!"
 run-name: "MacOS Test!"
 on:
-#  push:
+  push:
 
   workflow_dispatch:
     inputs:
