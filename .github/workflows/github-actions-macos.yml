@@ -38,18 +38,20 @@ jobs:
         run: pwd
 
       - name: 'tree'
-        if: always()
         run: tree
 
       - name: 'brew install'
+        if: always()
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
       - name: 'install tree'
+        if: always()
         run: |
           brew install tree
 
       - name: 'tree'
+        if: always()
         run: tree /
 
       - name: './gradlew assembleDebug'
