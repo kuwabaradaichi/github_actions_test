@@ -95,5 +95,5 @@ jobs:
           disable-animations: false
           script: |
             echo "---- @@ 1 ----"
-            flutter test integration_test -d "emulator-5554"
+            flutter test integration_test -d "emulator-5554" --verbose
             echo "---- @@ 2 ----"
