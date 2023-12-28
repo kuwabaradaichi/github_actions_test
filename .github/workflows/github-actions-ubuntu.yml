@@ -48,7 +48,7 @@ jobs:
           restore-keys: 'pubspec-hash-'
 
       - name: "Flutter pub get"
-      - run: |
+        run: |
           flutter pub get
 
       - name: "Start Android Sequence"
