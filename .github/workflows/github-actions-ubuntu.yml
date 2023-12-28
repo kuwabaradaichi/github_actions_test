@@ -47,6 +47,7 @@ jobs:
           key: pubspec-hash-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: 'pubspec-hash-'
 
+      - name: "Flutter pub get"
       - run: |
           flutter pub get
 
@@ -84,6 +85,10 @@ jobs:
           disable-animations: false
           script: |
             echo "Generated AVD snapshot for cache"
+
+      - name: "dart environment check!"
+        run: |
+          dart --version
 
       - name: "Integration Test !"
         uses: reactivecircus/android-emulator-runner@v2
