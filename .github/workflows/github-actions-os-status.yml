@@ -1,5 +1,5 @@
-name: "Ubuntu Test!"
-run-name: "Ubuntu Test! Run NAME"
+name: "OS Status"
+run-name: "OS Status Check!"
 on:
   push:
 
