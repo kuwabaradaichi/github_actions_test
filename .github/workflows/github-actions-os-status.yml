@@ -1,0 +1,59 @@
+name: "Ubuntu Test!"
+run-name: "Ubuntu Test! Run NAME"
+on:
+  push:
+
+  # Githubにて「Actions」タブを洗濯後、左エリアの「name」を選択すると、「Run workflow」が表示される。
+  workflow_dispatch:
+    inputs:
+      flavor-must:
+        required: true
+        description: 'Flavor Must'
+        default: 'default-value 1'
+      flavor-not-must:
+        required: false
+        description: 'Flavor Not Must'
+        default: 'default-value 2'
+
+jobs:
+  ubuntu_test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: '@@ actions/checkout@v4'
+        uses: actions/checkout@v4
+
+#      - name: "setup java"
+#        uses: actions/setup-java@v4
+#        with:
+#          distribution: 'zulu'
+#          java-version: '17'
+#          cache: 'gradle'
+
+#      - name: "gradle build action"
+#        uses: gradle/gradle-build-action@v2
+
+      - name: 'brew install'
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      - name: 'install tree'
+        run: |
+          brew install tree
+
+      - name: 'tree'
+        if: always()
+        run: tree -d -L 4 -I "proc|run|sys|tmp" /
+
+#      - name: './gradlew assembleDebug'
+#        working-directory: android
+#        run: |
+#          ls
+#          ./gradlew assembleDebug
+
+
+#      - name: '@@actions/upload-artifact@v4'
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: outputs
+#          path: ./outputs

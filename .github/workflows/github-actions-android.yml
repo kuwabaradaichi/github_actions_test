@@ -1,23 +1,14 @@
-name: "Ubuntu Test!"
-run-name: "Ubuntu Test! Run NAME"
-on:
-  push:
+name: integrations_test Android
+run-name: ${{ github.actor }} is integrations_test Android!
+on: [push]
 
-  # Githubにて「Actions」タブを洗濯後、左エリアの「name」を選択すると、「Run workflow」が表示される。
-  workflow_dispatch:
-    inputs:
-      flavor-must:
-        required: true
-        description: 'Flavor Must'
-        default: 'default-value 1'
-      flavor-not-must:
-        required: false
-        description: 'Flavor Not Must'
-        default: 'default-value 2'
+env:
+  flutter_version: '3.16.4'
 
 jobs:
-  ubuntu_test:
-    runs-on: ubuntu-latest
+
+  integration_test_android:
+    runs-on: macos-latest
     timeout-minutes: 20
     strategy:
       matrix:
