@@ -15,7 +15,7 @@ on:
         default: 'default-value 2'
 
 jobs:
-  Explore-Github-Actions:
+  Explore-Github-Actions_job:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This job was auto triggered! github.event_name->[${{ github.event_name }}] runner.os->[${{ runner.os }}] github.ref->[${{ github.ref }}] github.repository->[${{ github.repository }}.]"
