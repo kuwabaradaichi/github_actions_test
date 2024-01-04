@@ -90,6 +90,10 @@ jobs:
         run: |
           dart --version
 
+      - name: "dart ./dart_print_test.dart"
+        run: |
+          dart ./dart_print_test.dart
+
       - name: "Integration Test !"
         uses: reactivecircus/android-emulator-runner@v2
         with:
