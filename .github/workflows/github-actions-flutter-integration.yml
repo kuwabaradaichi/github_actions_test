@@ -1,5 +1,5 @@
-name: GithubActions Flutter integration
-run-name: GithubActions Flutter integration！
+name: flutter-integration
+run-name: "flutter-integration Flow"
 on: [push]
 
 env:
@@ -121,7 +121,9 @@ jobs:
           xcrun simctl boot $UUID
           echo "---- @@ 3 ----"
           xcrun simctl bootstatus $UUID
-          echo "---- @@ 4 ----"
+          echo "---- @@ 4 1----"
+          sleep 10
+          echo "---- @@ 4 2----"
           flutter test integration_test -d $UUID
           echo "---- @@ 5 ----"
           echo "Finish!"

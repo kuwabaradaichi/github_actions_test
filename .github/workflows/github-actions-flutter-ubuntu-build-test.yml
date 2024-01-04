@@ -1,5 +1,5 @@
-name: "Ubuntu Test!"
-run-name: "Ubuntu Test! Run NAME"
+name: flutter-ubuntu-build-test
+run-name: "flutter-ubuntu-build-test Flow"
 on:
   push:
 
@@ -103,6 +103,8 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
           disable-animations: false
           script: |
+            echo "---- @@ 0 ----"
+            sleep 10
             echo "---- @@ 1 ----"
             flutter test integration_test -d "emulator-5554" --verbose
             echo "---- @@ 2 ----"

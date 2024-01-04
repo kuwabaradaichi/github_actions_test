@@ -1,5 +1,5 @@
-name: GitHub Actions Test 1 !
-run-name: ${{ github.actor }} is testing GitHub Actions!
+name: GitHubActions Test Ubuntu
+run-name: "GitHubActions Test Ubuntu Flow"
 on:
   push:
 

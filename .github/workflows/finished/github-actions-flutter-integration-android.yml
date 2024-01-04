@@ -1,5 +1,5 @@
-name: integrations_test Android
-run-name: ${{ github.actor }} is integrations_test Android!
+name: flutter-integration-android
+run-name: "flutter-integration-android Flow"
 on: [push]
 
 env:

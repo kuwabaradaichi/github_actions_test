@@ -1,5 +1,5 @@
-name: Flutter iOS integrations_test
-run-name: ${{ github.actor }} is Flutter iOS integrations_test!
+name: flutter-integration-ios
+run-name: "flutter-integration-ios Flow"
 on:
   push:
     branched: ["develop-workflows"]
