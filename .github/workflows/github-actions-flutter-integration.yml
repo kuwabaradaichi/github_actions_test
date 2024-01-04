@@ -107,7 +107,8 @@ jobs:
           restore-keys: 'pubspec-hash-'
 
       - run: |
-          flutter pub get --verbose
+          flutter pub get
+#          flutter pub get --verbose
 
       - name: Get iPhone SE 3rd generation Simulator UUID
         run: |
