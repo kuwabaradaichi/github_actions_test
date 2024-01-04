@@ -1,5 +1,5 @@
-name: flutter-integration-ios
-run-name: "flutter-integration-ios Flow"
+name: flutter-integration-ios Flow
+run-name: flutter-integration-ios Run
 on:
   push:
     branched: ["develop-workflows"]

@@ -1,5 +1,5 @@
-name: flutter-ubuntu-build-test
-run-name: "flutter-ubuntu-build-test Flow"
+name: flutter-ubuntu-build-test Flow
+run-name: flutter-ubuntu-build-test Run
 on:
   push:
 

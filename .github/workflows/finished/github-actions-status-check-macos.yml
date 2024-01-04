@@ -1,5 +1,5 @@
-name: Status Check MacOS
-run-name: "Status Check MacOS Flow"
+name: Status Check MacOS Flow
+run-name: Status Check MacOS Run
 on:
   push:
 

@@ -1,5 +1,5 @@
-name: GitHubActions Test Ubuntu
-run-name: "GitHubActions Test Ubuntu Flow"
+name: GitHubActions Test Ubuntu FLow
+run-name: GitHubActions Test Ubuntu Run
 on:
   push:
 

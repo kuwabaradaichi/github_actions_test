@@ -1,5 +1,5 @@
-name: Status Check Ubuntu
-run-name: "Status Check Ubuntu Flow"
+name: Status Check Ubuntu FLow
+run-name: Status Check Ubuntu Run
 on:
   push:
 

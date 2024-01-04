@@ -1,5 +1,5 @@
-name: flutter-integration-android
-run-name: "flutter-integration-android Flow"
+name: flutter-integration-android Flow
+run-name: flutter-integration-android Run
 on: [push]
 
 env:

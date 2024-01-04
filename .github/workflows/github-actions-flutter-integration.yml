@@ -1,5 +1,5 @@
-name: flutter-integration
-run-name: "flutter-integration Flow"
+name: flutter-integration Flow
+run-name: flutter-integration Run
 on: [push]
 
 env:
